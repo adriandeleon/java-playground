@@ -14,7 +14,6 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <log4j.version>2.17.2</log4j.version>
-    <awssdk.version>2.16.60</awssdk.version>
     <app.mainClass>com.grokthecode.App</app.mainClass>
   </properties>
 
@@ -84,26 +83,8 @@
       <artifactId>unirest-java</artifactId>
       <version>3.13.8</version>
     </dependency>
-
-    <dependency>
-      <groupId>software.amazon.awssdk</groupId>
-      <artifactId>ec2</artifactId>
-    </dependency>
     <!--    Other dependencies-->
   </dependencies>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>software.amazon.awssdk</groupId>
-        <artifactId>bom</artifactId>
-        <version>${awssdk.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
 
   <build>
     <plugins>
