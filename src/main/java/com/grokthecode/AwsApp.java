@@ -1,11 +1,14 @@
 package com.grokthecode;
 
 import lombok.extern.log4j.Log4j2;
+import software.amazon.awssdk.awscore.exception.AwsServiceException;
+import software.amazon.awssdk.core.exception.SdkClientException;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ec2.Ec2Client;
 import software.amazon.awssdk.services.ec2.model.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Log4j2
 public class AwsApp {
@@ -85,10 +88,11 @@ public class AwsApp {
     }
   }
 
-  public void removeEC2SecurityGroupRule(final String groupId, final String ruleDescription) {
+  public void removeEC2SecurityGroupRule(final String groupId, final String ruleDescription) throws Exception {
     try {
       final Ec2Client ec2Client =  Ec2Client.builder().region(region).build();
-      final IpPermission ipPermission = getIpPermissonByDescription(groupId, ruleDescription);
+      final Optional<IpPermission> optionalIpPermission = getIpPermissonByDescription(groupId, ruleDescription);
+      final IpPermission ipPermission = optionalIpPermission.get();
 
       final RevokeSecurityGroupIngressRequest revokeSecurityGroupIngressRequest = RevokeSecurityGroupIngressRequest.builder()
               .groupId(groupId)
@@ -104,7 +108,7 @@ public class AwsApp {
     }
   }
 
-  public IpPermission getIpPermissonByDescription(final String groupId, final String ruleDescription) {
+  public Optional<IpPermission> getIpPermissonByDescription(final String groupId, final String ruleDescription) throws Exception {
     final Ec2Client ec2Client =  Ec2Client.builder().region(region).build();
     IpPermission ipPermissionFound = null;
     try {
@@ -129,6 +133,9 @@ public class AwsApp {
           }
         }
       }
+      if (cidrIp == null) {
+        throw new Exception("There is no security rule with that description");
+      }
       final IpRange iprange = IpRange.builder()
               .cidrIp(cidrIp)
               .description(description)
@@ -144,6 +151,29 @@ public class AwsApp {
       log.error(e.awsErrorDetails().errorMessage());
       System.exit(1);
     }
-    return ipPermissionFound;
+    return Optional.of(ipPermissionFound);
+  }
+
+  public void updateEC2SecurityGroupRule(final String groupId, final String ruleDescription, final String ip) {
+    try{
+      final Optional<IpPermission> optionalIpPermission = getIpPermissonByDescription(groupId, ruleDescription);
+      final String protocol = optionalIpPermission.get().ipProtocol();
+
+      updateEC2SecurityGroupRule(groupId, ruleDescription, protocol, ip);
+    } catch (Exception e) {
+      log.error(e.getMessage());
+      System.exit(1);
+    }
+  }
+
+  public void updateEC2SecurityGroupRule(final String groupId, final String ruleDescription,
+                                         final String protocol, final String ip) {
+    try {
+      removeEC2SecurityGroupRule(groupId, ruleDescription);
+      addEC2SecurityGroupRule(groupId, ruleDescription, protocol, ip);
+    } catch (Exception e) {
+      log.error(e.getMessage());
+      System.exit(1);
+    }
   }
 }

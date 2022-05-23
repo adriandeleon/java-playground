@@ -33,12 +33,12 @@ class AwsAppTest {
   }
 
   @Test
-  void removeEC2SecurityGroupRuleTest() {
+  void removeEC2SecurityGroupRuleTest() throws Exception {
     awsApp.removeEC2SecurityGroupRule(groupId, ruleDescription);
   }
 
   @Test
-  void getIpPermissonByDescriptionTest() {
+  void getIpPermissonByDescriptionTest() throws Exception {
     awsApp.getIpPermissonByDescription(groupId, ruleDescription);
   }
 }
