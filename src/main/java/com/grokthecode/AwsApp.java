@@ -40,8 +40,8 @@ public class AwsApp {
     try {
       final Ec2Client ec2Client =  Ec2Client.builder().region(awsRegion).build();
 
-      final DescribeInstancesRequest request = DescribeInstancesRequest.builder().build();
-      final DescribeInstancesResponse response = ec2Client.describeInstances(request);
+      final var request = DescribeInstancesRequest.builder().build();
+      final var response = ec2Client.describeInstances(request);
 
       for (Reservation reservation : response.reservations()) {
         for (Instance instance : reservation.instances()) {
@@ -74,8 +74,8 @@ public class AwsApp {
     try {
       final Ec2Client ec2Client =  Ec2Client.builder().region(awsRegion).build();
 
-      final DescribeInstancesRequest request = DescribeInstancesRequest.builder().build();
-      final DescribeInstancesResponse response = ec2Client.describeInstances(request);
+      final var request = DescribeInstancesRequest.builder().build();
+      final var response = ec2Client.describeInstances(request);
 
       final List<Reservation> reservations = response.reservations();
 
@@ -97,10 +97,8 @@ public class AwsApp {
   public void describeEC2SecurityGroups(final String groupId) {
     final Ec2Client ec2Client =  Ec2Client.builder().region(awsRegion).build();
     try {
-      final DescribeSecurityGroupsRequest request =
-          DescribeSecurityGroupsRequest.builder().groupIds(groupId).build();
-
-      final DescribeSecurityGroupsResponse response = ec2Client.describeSecurityGroups(request);
+      final var request = DescribeSecurityGroupsRequest.builder().groupIds(groupId).build();
+      final var response = ec2Client.describeSecurityGroups(request);
 
       for (SecurityGroup group : response.securityGroups()) {
         log.info(String.format("Found Security Group with id %s, " + "vpc id %s " + "and description %s",
@@ -118,7 +116,7 @@ public class AwsApp {
     final Ec2Client ec2Client =  Ec2Client.builder().region(awsRegion).build();
 
     try {
-      String authorizedIp = ip + "/32";
+      final String authorizedIp = ip + "/32";
 
       final IpRange ipRange = IpRange.builder()
               .description(ruleDescription)
@@ -130,12 +128,12 @@ public class AwsApp {
               .ipRanges(ipRange)
               .build();
 
-      final AuthorizeSecurityGroupIngressRequest authorizeSecurityGroupIngressRequest = AuthorizeSecurityGroupIngressRequest.builder()
+      final var authorizeSecurityGroupIngressRequest = AuthorizeSecurityGroupIngressRequest.builder()
               .groupId(groupId)
               .ipPermissions(ipPermission)
               .build();
 
-      final AuthorizeSecurityGroupIngressResponse authorizeSecurityGroupIngressResponse = ec2Client.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest);
+      final var authorizeSecurityGroupIngressResponse = ec2Client.authorizeSecurityGroupIngress(authorizeSecurityGroupIngressRequest);
 
       ec2Client.close();
     } catch (Ec2Exception e) {
@@ -150,12 +148,12 @@ public class AwsApp {
       final Optional<IpPermission> optionalIpPermission = getIpPermissonByDescription(groupId, ruleDescription);
       final IpPermission ipPermission = optionalIpPermission.get();
 
-      final RevokeSecurityGroupIngressRequest revokeSecurityGroupIngressRequest = RevokeSecurityGroupIngressRequest.builder()
+      final var revokeSecurityGroupIngressRequest = RevokeSecurityGroupIngressRequest.builder()
               .groupId(groupId)
               .ipPermissions(ipPermission)
               .build();
 
-      final RevokeSecurityGroupIngressResponse revokeSecurityGroupIngressResponse = ec2Client.revokeSecurityGroupIngress(revokeSecurityGroupIngressRequest);
+      final var revokeSecurityGroupIngressResponse = ec2Client.revokeSecurityGroupIngress(revokeSecurityGroupIngressRequest);
 
       ec2Client.close();
     } catch (Ec2Exception e) {
@@ -168,11 +166,12 @@ public class AwsApp {
     final Ec2Client ec2Client =  Ec2Client.builder().region(awsRegion).build();
     IpPermission ipPermissionFound = null;
     try {
-      final DescribeSecurityGroupsRequest request = DescribeSecurityGroupsRequest.builder()
+      final var request = DescribeSecurityGroupsRequest.builder()
               .groupIds(groupId)
               .build();
 
-      final DescribeSecurityGroupsResponse response = ec2Client.describeSecurityGroups(request);
+      final var response = ec2Client.describeSecurityGroups(request);
+
       String cidrIp = null;
       String description = null;
       String protocol = null;
@@ -213,7 +212,6 @@ public class AwsApp {
   public void updateEC2SecurityGroupRule(final String groupId, final String ruleDescription, final String ip) {
     try{
       final Optional<IpPermission> optionalIpPermission = getIpPermissonByDescription(groupId, ruleDescription);
-      //final String protocol = optionalIpPermission.get().ipProtocol();
       final String protocol = optionalIpPermission.get().ipProtocol();
 
       updateEC2SecurityGroupRule(groupId, ruleDescription, protocol, ip);
