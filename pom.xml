@@ -11,15 +11,17 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <log4j.version>2.17.2</log4j.version>
-    <awssdk.version>2.16.60</awssdk.version>
+    <maven.compiler.source>18</maven.compiler.source>
+    <maven.compiler.target>18</maven.compiler.target>
     <app.mainClass>com.grokthecode.App</app.mainClass>
   </properties>
 
   <dependencies>
     <!--    Core dependencies-->
+    
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <!-- https://projectlombok.org/   -->
+    <!-- Lombok is a popular and widely used Java library that is used to minimize or remove the boilerplate code. -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -27,37 +29,59 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+    <!-- https://logging.apache.org/log4j/2.x/ -->
+    <!-- Apache Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
-      <version>${log4j.version}</version>
+      <version>2.18.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+    <!-- https://logging.apache.org/log4j/2.x/ -->
+    <!-- Apache Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
-      <version>${log4j.version}</version>
+      <version>2.18.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+    <!-- https://commons.apache.org/proper/commons-lang/-->
+    <!-- The standard Java libraries fail to provide enough methods for manipulation of its core classes.
+     Apache Commons Lang provides these extra methods.-->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.12.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.spongepowered/configurate-hocon -->
+    <!-- https://github.com/SpongePowered/Configurate-->
+    <!-- Configurate is a simple configuration library for Java applications that provides a
+    node-based representation of data, able to handle a wide variety of configuration formats.-->
     <dependency>
       <groupId>org.spongepowered</groupId>
       <artifactId>configurate-hocon</artifactId>
       <version>4.1.2</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+    <!-- https://junit.org/junit5/-->
+    <!-- JUnit 5 is the next generation of JUnit. The goal is to create an up-to-date foundation
+     for developer-side testing on the JVM-->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.8.2</version>
+      <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+    <!-- https://assertj.github.io/doc/-->
+    <!-- AssertJ is a Java library that provides a rich set of assertions and truly helpful error messages,
+     improves test code readability, and is designed to be super easy to use within your favorite IDE.-->
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
@@ -78,6 +102,7 @@
       <scope>test</scope>
     </dependency>
     <!--    Core dependencies-->
+    
     <!--    Other dependencies-->
     <dependency>
       <groupId>com.konghq</groupId>
@@ -88,6 +113,7 @@
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>ec2</artifactId>
+      <version>2.17.243</version>
     </dependency>
     <!--    Other dependencies-->
   </dependencies>
@@ -97,7 +123,7 @@
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
         <artifactId>bom</artifactId>
-        <version>${awssdk.version}</version>
+        <version>2.17.243</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
