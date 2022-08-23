@@ -98,6 +98,18 @@
       <version>4.7.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
+    <!-- https://github.com/mockito/mockito-->
+    <!-- Mockito extension for JUnit 5-->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>4.7.0</version>
+      <scope>test</scope>
+    </dependency>
+
+
+
     <!-- https://mvnrepository.com/artifact/io.github.hakky54/logcaptor -->
     <!-- https://github.com/Hakky54/log-captor-->
     <!-- LogCaptor will enable you to easily capture logging entries for unit testing purposes-->
