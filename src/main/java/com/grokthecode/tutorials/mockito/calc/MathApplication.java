@@ -5,7 +5,7 @@ public class MathApplication {
     //https://www.tutorialspoint.com/mockito/mockito_junit_integration.htm
     private CalculatorService calculatorService;
 
-    public void setCalculatorService(CalculatorService calculatorService) {
+    public void setCalculatorService(final CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
     }
 
@@ -24,5 +24,4 @@ public class MathApplication {
     public double divide(final double input1, final double input2) {
         return calculatorService.divide(input1, input2);
     }
-
 }

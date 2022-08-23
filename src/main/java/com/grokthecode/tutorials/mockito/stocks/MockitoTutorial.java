@@ -9,11 +9,11 @@ import static org.mockito.Mockito.when;
 public class MockitoTutorial {
 
     // https://www.tutorialspoint.com/mockito/index.htm
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         //Create a portfolio object which is to be tested.
         final Portfolio portfolio = new Portfolio();
 
-        //Create a list of stocks to be added to the portafolio
+        //Create a list of stocks to be added to the portfolio
         final List<Stock> stocks = new ArrayList<>();
         final Stock googleStock = new Stock("1", "Google", 10);
         final Stock microsoftStock = new Stock("2", "Microsoft", 100);
@@ -22,7 +22,7 @@ public class MockitoTutorial {
         stocks.add(microsoftStock);
 
         //Create the mock object of the stock service
-        StockService stockServiceMock = mock(StockService.class);
+        final StockService stockServiceMock = mock(StockService.class);
 
         //Mock teh behavior of stock service to return the value of various stocks
         when(stockServiceMock.getPrice(googleStock)).thenReturn(50.00);
