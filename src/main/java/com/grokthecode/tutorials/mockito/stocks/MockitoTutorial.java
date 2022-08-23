@@ -24,7 +24,7 @@ public class MockitoTutorial {
         //Create the mock object of the stock service
         StockService stockServiceMock = mock(StockService.class);
 
-        //Mock teh behavior of stock service to retun the value of various stocks
+        //Mock teh behavior of stock service to return the value of various stocks
         when(stockServiceMock.getPrice(googleStock)).thenReturn(50.00);
         when(stockServiceMock.getPrice(microsoftStock)).thenReturn(1000.00);
 
