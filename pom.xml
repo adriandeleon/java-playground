@@ -109,7 +109,6 @@
     </dependency>
 
 
-
     <!-- https://mvnrepository.com/artifact/io.github.hakky54/logcaptor -->
     <!-- https://github.com/Hakky54/log-captor-->
     <!-- LogCaptor will enable you to easily capture logging entries for unit testing purposes-->
@@ -120,6 +119,7 @@
       <scope>test</scope>
     </dependency>
     <!--    Core dependencies-->
+
     
     <!--    Other dependencies-->
 
