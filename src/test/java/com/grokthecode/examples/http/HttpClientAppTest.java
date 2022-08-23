@@ -1,5 +1,6 @@
-package com.grokthecode;
+package com.grokthecode.examples.http;
 
+import com.grokthecode.examples.http.HttpClientApp;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

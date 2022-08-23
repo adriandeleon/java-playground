@@ -1,5 +1,7 @@
-package com.grokthecode;
+package com.grokthecode.examples.aws;
 
+import com.grokthecode.examples.aws.AwsApp;
+import com.grokthecode.examples.http.HttpClientApp;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import software.amazon.awssdk.services.ec2.model.Instance;

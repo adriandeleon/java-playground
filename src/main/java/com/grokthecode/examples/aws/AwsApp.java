@@ -1,4 +1,4 @@
-package com.grokthecode;
+package com.grokthecode.examples.aws;
 
 import lombok.extern.log4j.Log4j2;
 import software.amazon.awssdk.regions.Region;

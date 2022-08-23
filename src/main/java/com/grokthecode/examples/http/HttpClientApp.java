@@ -1,4 +1,4 @@
-package com.grokthecode;
+package com.grokthecode.examples.http;
 
 import com.grokthecode.dtos.IpDto;
 import kong.unirest.HttpResponse;

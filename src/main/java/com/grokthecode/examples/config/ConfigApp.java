@@ -1,4 +1,4 @@
-package com.grokthecode;
+package com.grokthecode.examples.config;
 
 import lombok.extern.log4j.Log4j2;
 import org.spongepowered.configurate.CommentedConfigurationNode;
