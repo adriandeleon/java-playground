@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
 public class restAssured {
-
+    //https://howtodoinjava.com/java/library/rest-assured-tutorial/
     public static void setup() {
         baseURI = "https://httpbin.org/";
         //basePath = "/api";
