@@ -2,29 +2,26 @@ package com.grokthecode.examples.restAssured;
 
 import org.junit.jupiter.api.Test;
 
-import io.restassured.RestAssured;
-import io.restassured.parsing.Parser;
-import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
 
 public class restAssured {
 
     public static void setup() {
-        baseURI = "https://reqres.in/";
-        basePath = "/api";
+        baseURI = "https://httpbin.org/";
+        //basePath = "/api";
     }
 
     @Test
     public void getResponseBody(){
         given()
-                .pathParam("id", 2)
                 .when()
-                .get("/users/{id}")
+                .get("https://httpbin.org/ip")
                 .then()
-                .statusCode(equalTo(200))
-                .body("data.id", equalTo(2))
-                .body("data.email", equalTo("janet.weaver@reqres.in"));
+                .assertThat().statusCode(200)
+                .log().body()
+                .body("origin", equalTo("189.203.90.251"));
+
+        //System.out.println(response.jsonPath().prettyPrint());
     }
 }
