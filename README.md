@@ -1,4 +1,4 @@
-# Java Playgound: A Java testing grounds.
+# Java Playground: A Java testing grounds.
 
 Adrian De Leon <adrian@adriandeleon.me>
 
