@@ -1,4 +1,4 @@
-package com.grokthecode.dtos;
+package com.grokthecode.examples.dtos;
 
 import lombok.Value;
 

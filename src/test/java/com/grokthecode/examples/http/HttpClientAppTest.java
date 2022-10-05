@@ -25,4 +25,10 @@ class HttpClientAppTest {
         assertThat(httpClientApp.getIPFromHttpBinToDto())
                 .isNotNull();
     }
+
+    @Test
+    void getIMDBTitleInfo(){
+        assertThat(httpClientApp.getIMDBTitleInfo())
+                .isNotNull();
+    }
 }
