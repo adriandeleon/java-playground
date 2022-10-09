@@ -2,6 +2,7 @@ package com.grokthecode;
 
 import lombok.NonNull;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.Validate;
 
 import java.util.Objects;
 
@@ -17,6 +18,7 @@ public class App {
   public void checkParamsWithRequireNonNull(final String firstName, final String lastName) {
     Objects.requireNonNull(firstName, FIRST_NAME_CANNOT_BE_NULL);
     Objects.requireNonNull(lastName, LAST_NAME_CANNOT_BE_NULL);
+      Validate.notNull(firstName);
 
     log.info(String.format("firstName: %s", firstName));
     log.info(String.format("lastName: %s", lastName));

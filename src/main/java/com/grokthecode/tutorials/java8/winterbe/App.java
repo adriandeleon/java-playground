@@ -1,0 +1,36 @@
+package com.grokthecode.tutorials.java8.winterbe;
+
+import lombok.val;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
+
+//URL: https://www.winterbe.com/posts/2014/03/16/java-8-tutorial/
+public class App {
+
+    public void parallelStreamExample(){
+        int max = 10000000;
+
+        final String myString = "Hola Mundo!";
+        myString.isBlank();
+
+        final List<String> values = new ArrayList<String>(max);
+
+        for (int i = 0; i < max; i++) {
+            UUID uuid = UUID.randomUUID();
+            values.add(uuid.toString());
+        }
+
+        long t0 = System.nanoTime();
+
+        long count = values.parallelStream().sorted().count();
+        System.out.println(count);
+
+        long t1 = System.nanoTime();
+
+        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+        System.out.println(String.format("sequential sort took: %d ms", millis));
+    }
+}
