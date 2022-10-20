@@ -53,6 +53,18 @@
       <version>0.10.4</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.eclipse.collections</groupId>
+      <artifactId>eclipse-collections-api</artifactId>
+      <version>11.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.collections</groupId>
+      <artifactId>eclipse-collections</artifactId>
+      <version>11.1.0</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
     <!-- https://commons.apache.org/proper/commons-lang/-->
     <!-- The standard Java libraries fail to provide enough methods for manipulation of its core classes.

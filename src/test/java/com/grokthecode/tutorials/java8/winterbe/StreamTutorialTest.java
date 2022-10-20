@@ -6,15 +6,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+//https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
 class StreamTutorialTest {
-
-    private StreamTutorial streamTutorial;
 
     @BeforeEach
     void setUp() {
-        streamTutorial = new StreamTutorial();
     }
 
     @AfterEach
@@ -23,16 +25,24 @@ class StreamTutorialTest {
 
     @Test
     void example1() {
-        streamTutorial.example1();
+        val myList = List.of("a1", "a2", "b1", "c2", "c1");
+
+        myList.stream()
+                .filter(s -> s.startsWith("c"))
+                .map(String::toUpperCase)
+                .sorted()
+                .forEach(System.out::println);
     }
 
     @Test
     void example2() {
-        streamTutorial.example2();
+        Stream.of("a1", "a2", "a3")
+                .findFirst()
+                .isPresent();
     }
 
     @Test
     void example3() {
-        streamTutorial.example3();
+        IntStream.range(1, 4).forEach(System.out::println);
     }
 }
