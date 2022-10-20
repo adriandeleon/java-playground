@@ -47,18 +47,27 @@
       <version>2.19.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/io.vavr/vavr/0.10.4-->
+    <!-- https://www.vavr.io/-->
+    <!-- Vavr is an object-functional library for Java 8+-->
     <dependency>
       <groupId>io.vavr</groupId>
       <artifactId>vavr</artifactId>
       <version>0.10.4</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections-api/11.1.0-->
+    <!-- https://www.eclipse.org/collections/-->
+    <!-- Eclipse Collections is the best Java collections framework ever that brings happiness to your Java development.-->
     <dependency>
       <groupId>org.eclipse.collections</groupId>
       <artifactId>eclipse-collections-api</artifactId>
       <version>11.1.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections/11.1.0-->
+    <!-- https://www.eclipse.org/collections/-->
+    <!-- Eclipse Collections is the best Java collections framework ever that brings happiness to your Java development.-->
     <dependency>
       <groupId>org.eclipse.collections</groupId>
       <artifactId>eclipse-collections</artifactId>
