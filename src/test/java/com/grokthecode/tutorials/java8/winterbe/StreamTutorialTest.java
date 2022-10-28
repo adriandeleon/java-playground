@@ -2,15 +2,12 @@ package com.grokthecode.tutorials.java8.winterbe;
 
 import lombok.val;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 //https://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
 class StreamTutorialTest {

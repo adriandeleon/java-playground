@@ -29,7 +29,7 @@ class AppTest {
 
         final List<String> values = new ArrayList<String>(max);
 
-        for (int i = 0; i < max; i++) {
+        for(int i = 0; i < max; i++) {
             UUID uuid = UUID.randomUUID();
             values.add(uuid.toString());
         }
