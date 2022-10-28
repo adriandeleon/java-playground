@@ -1,297 +1,298 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.grokthecode</groupId>
-  <artifactId>java-playground</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+    <groupId>com.grokthecode</groupId>
+    <artifactId>java-playground</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
 
-  <name>java-playground</name>
-  <url>https://www.grokthecode.com</url>
+    <name>java-playground</name>
+    <url>https://www.grokthecode.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>19</maven.compiler.source>
-    <maven.compiler.target>19</maven.compiler.target>
-    <app.mainClass>com.grokthecode.App</app.mainClass>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <app.mainClass>com.grokthecode.App</app.mainClass>
+    </properties>
 
-  <dependencies>
-    <!--    Core dependencies-->
-    
-    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-    <!-- https://projectlombok.org/   -->
-    <!-- Lombok is a popular and widely used Java library that is used to minimize or remove the boilerplate code. -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-    <!-- https://logging.apache.org/log4j/2.x/ -->
-    <!-- Apache Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>2.19.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-    <!-- https://logging.apache.org/log4j/2.x/ -->
-    <!-- Apache Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.19.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.vavr/vavr/0.10.4-->
-    <!-- https://www.vavr.io/-->
-    <!-- Vavr is an object-functional library for Java 8+-->
-    <dependency>
-      <groupId>io.vavr</groupId>
-      <artifactId>vavr</artifactId>
-      <version>0.10.4</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections-api/11.1.0-->
-    <!-- https://www.eclipse.org/collections/-->
-    <!-- Eclipse Collections is the best Java collections framework ever that brings happiness to your Java development.-->
-    <dependency>
-      <groupId>org.eclipse.collections</groupId>
-      <artifactId>eclipse-collections-api</artifactId>
-      <version>11.1.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections/11.1.0-->
-    <!-- https://www.eclipse.org/collections/-->
-    <!-- Eclipse Collections is the best Java collections framework ever that brings happiness to your Java development.-->
-    <dependency>
-      <groupId>org.eclipse.collections</groupId>
-      <artifactId>eclipse-collections</artifactId>
-      <version>11.1.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-    <!-- https://commons.apache.org/proper/commons-lang/-->
-    <!-- The standard Java libraries fail to provide enough methods for manipulation of its core classes.
-     Apache Commons Lang provides these extra methods.-->
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.12.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.spongepowered/configurate-hocon -->
-    <!-- https://github.com/SpongePowered/Configurate-->
-    <!-- Configurate is a simple configuration library for Java applications that provides a
-    node-based representation of data, able to handle a wide variety of configuration formats.-->
-    <dependency>
-      <groupId>org.spongepowered</groupId>
-      <artifactId>configurate-hocon</artifactId>
-      <version>4.1.2</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
-    <!-- https://github.com/rest-assured/rest-assured-->
-    <!-- REST Assured is a Java DSL for simplifying testing of REST based services-->
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <version>5.2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured-all</artifactId>
-      <version>5.2.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
-    <!-- https://junit.org/junit5/-->
-    <!-- JUnit 5 is the next generation of JUnit. The goal is to create an up-to-date foundation
-     for developer-side testing on the JVM-->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.9.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
-    <!-- https://assertj.github.io/doc/-->
-    <!-- AssertJ is a Java library that provides a rich set of assertions and truly helpful error messages,
-     improves test code readability, and is designed to be super easy to use within your favorite IDE.-->
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>3.23.1</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-    <!-- https://site.mockito.org/-->
-    <!-- Most popular mocking framework for Java-->
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>4.8.0</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-    <!-- https://github.com/mockito/mockito-->
-    <!-- Mockito extension for JUnit 5-->
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-junit-jupiter</artifactId>
-      <version>4.8.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.github.hakky54/logcaptor -->
-    <!-- https://github.com/Hakky54/log-captor-->
-    <!-- LogCaptor will enable you to easily capture logging entries for unit testing purposes-->
-    <dependency>
-      <groupId>io.github.hakky54</groupId>
-      <artifactId>logcaptor</artifactId>
-      <version>2.7.10</version>
-      <scope>test</scope>
-    </dependency>
-    <!--    Core dependencies-->
-
-    <!--    Other dependencies-->
-
-    <!-- https://mvnrepository.com/artifact/com.konghq/unirest-java -->
-    <!-- https://kong.github.io/unirest-java/-->
-    <!-- Simplified, lightweight HTTP client library.-->
-    <dependency>
-      <groupId>com.konghq</groupId>
-      <artifactId>unirest-java</artifactId>
-      <version>3.13.11</version>
-    </dependency>
-
-    <dependency>
-      <groupId>software.amazon.awssdk</groupId>
-      <artifactId>ec2</artifactId>
-      <version>2.17.285</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>2.0.3</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
-    <!-- https://javalin.io/ -->
-    <!-- A simple web framework for Java and Kotlin. -->
-    <dependency>
-      <groupId>io.javalin</groupId>
-      <artifactId>javalin</artifactId>
-      <version>5.0.1</version>
-    </dependency>
-    <!--    Other dependencies-->
-  </dependencies>
-
-
-
-  <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>software.amazon.awssdk</groupId>
-        <artifactId>bom</artifactId>
-        <version>2.17.256</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <!--    Core dependencies-->
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!-- https://projectlombok.org/   -->
+        <!-- Lombok is a popular and widely used Java library that is used to minimize or remove the boilerplate code. -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <!-- https://logging.apache.org/log4j/2.x/ -->
+        <!-- Apache Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.19.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <!-- https://logging.apache.org/log4j/2.x/ -->
+        <!-- Apache Log4j 2 is an upgrade to Log4j that provides significant improvements over its predecessor -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.19.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.vavr/vavr/0.10.4-->
+        <!-- https://www.vavr.io/-->
+        <!-- Vavr is an object-functional library for Java 8+-->
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.10.4</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections-api/11.1.0-->
+        <!-- https://www.eclipse.org/collections/-->
+        <!-- Eclipse Collections is the best Java collections framework ever that brings happiness to your Java development.-->
+        <dependency>
+            <groupId>org.eclipse.collections</groupId>
+            <artifactId>eclipse-collections-api</artifactId>
+            <version>11.1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections/11.1.0-->
+        <!-- https://www.eclipse.org/collections/-->
+        <!-- Eclipse Collections is the best Java collections framework ever that brings happiness to your Java development.-->
+        <dependency>
+            <groupId>org.eclipse.collections</groupId>
+            <artifactId>eclipse-collections</artifactId>
+            <version>11.1.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <!-- https://commons.apache.org/proper/commons-lang/-->
+        <!-- The standard Java libraries fail to provide enough methods for manipulation of its core classes.
+         Apache Commons Lang provides these extra methods.-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.spongepowered/configurate-hocon -->
+        <!-- https://github.com/SpongePowered/Configurate-->
+        <!-- Configurate is a simple configuration library for Java applications that provides a
+        node-based representation of data, able to handle a wide variety of configuration formats.-->
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>configurate-hocon</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <!-- https://github.com/rest-assured/rest-assured-->
+        <!-- REST Assured is a Java DSL for simplifying testing of REST-based services-->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured-all</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+        <!-- https://junit.org/junit5/-->
+        <!-- JUnit 5 is the next generation of JUnit. The goal is to create an up-to-date foundation
+         for developer-side testing on the JVM-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+        <!-- https://assertj.github.io/doc/-->
+        <!-- AssertJ is a Java library that provides a rich set of assertions and truly helpful error messages,
+         improves test code readability, and is designed to be super easy to use within your favorite IDE.-->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.23.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <!-- https://site.mockito.org/-->
+        <!-- Most popular mocking framework for Java-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
+        <!-- https://github.com/mockito/mockito-->
+        <!-- Mockito extension for JUnit 5-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>4.8.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.hakky54/logcaptor -->
+        <!-- https://github.com/Hakky54/log-captor-->
+        <!-- LogCaptor will enable you to easily capture logging entries for unit testing purposes-->
+        <dependency>
+            <groupId>io.github.hakky54</groupId>
+            <artifactId>logcaptor</artifactId>
+            <version>2.7.10</version>
+            <scope>test</scope>
+        </dependency>
+        <!--    Core dependencies-->
+
+        <!--    Other dependencies-->
+
+        <!-- https://mvnrepository.com/artifact/com.konghq/unirest-java -->
+        <!-- https://kong.github.io/unirest-java/-->
+        <!-- Simplified, lightweight HTTP client library.-->
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>3.13.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>ec2</artifactId>
+            <version>2.18.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
+        <!-- https://javalin.io/ -->
+        <!-- A simple web framework for Java and Kotlin. -->
+        <dependency>
+            <groupId>io.javalin</groupId>
+            <artifactId>javalin</artifactId>
+            <version>5.1.2</version>
+        </dependency>
+        <!--    Other dependencies-->
     </dependencies>
-  </dependencyManagement>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.3.0</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>${app.mainClass}</mainClass>
-                </transformer>
-              </transformers>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
-      <plugin>
-        <groupId>org.gaul</groupId>
-        <artifactId>modernizer-maven-plugin</artifactId>
-        <version>2.4.0</version>
-        <executions>
-          <execution>
-            <id>modernizer</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>modernizer</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <javaVersion>${maven.compiler.target}</javaVersion>
-        </configuration>
-      </plugin>
-    </plugins>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>2.17.256</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>${app.mainClass}</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.2.0</version>
-        </plugin>
+            <plugin>
+                <groupId>org.gaul</groupId>
+                <artifactId>modernizer-maven-plugin</artifactId>
+                <version>2.4.0</version>
+                <executions>
+                    <execution>
+                        <id>modernizer</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>modernizer</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <javaVersion>${maven.compiler.target}</javaVersion>
+                </configuration>
+            </plugin>
+        </plugins>
 
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.1</version>
-        </plugin>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.2.2</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.2.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
