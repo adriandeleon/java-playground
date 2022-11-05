@@ -2,6 +2,7 @@ package com.grokthecode.tutorials.howtoinjava.streams;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Collection;
 import java.util.List;
 
 //https://howtodoinjava.com/java8/stream-map-vs-flatmap/
@@ -29,7 +30,7 @@ public class StreamsTest {
 
         final List<Integer> listOfAllIntegers = listOfLists
                 .stream()
-                .flatMap(x -> x.stream())
+                .flatMap(Collection::stream)
                 .toList();
 
         System.out.printf(listOfLists.toString() + "\n");

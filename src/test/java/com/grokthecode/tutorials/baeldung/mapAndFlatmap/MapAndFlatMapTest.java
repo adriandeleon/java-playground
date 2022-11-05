@@ -7,16 +7,16 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //https://www.baeldung.com/java-difference-map-and-flatmap
-public class mapAndFlatMapTest {
+public class MapAndFlatMapTest {
 
     @Test
-    void mapInOptionalTest1(){
+    void mapInOptionalTest1() {
         Optional<String> s = Optional.of("test");
         assertEquals(Optional.of("TEST"), s.map(String::toUpperCase));
     }
 
     @Test
-    void mapInOptionalTest2(){
+    void mapInOptionalTest2() {
         assertEquals(Optional.of(Optional.of("STRING")),
                 Optional
                         .of("string")
@@ -24,7 +24,7 @@ public class mapAndFlatMapTest {
     }
 
     @Test
-    void flatMapOptional1(){
+    void flatMapOptional1() {
         assertEquals(Optional.of("STRING"), Optional
                 .of("string")
                 .flatMap(s -> Optional.of("STRING")));
