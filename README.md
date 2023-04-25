@@ -28,6 +28,15 @@ John->>Bob: How about you?
 Bob-->>John: Jolly good!
 
 ```
+Clean the project...
+```shell
+mvn clean
+```
+
+Compile the project...
+```shell
+mvn compile
+```
 
 
 
