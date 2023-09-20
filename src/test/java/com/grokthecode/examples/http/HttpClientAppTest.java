@@ -3,6 +3,7 @@ package com.grokthecode.examples.http;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class HttpClientAppTest {
@@ -24,6 +25,13 @@ class HttpClientAppTest {
     void getIPFromHttpBinToDto() {
         assertThat(httpClientApp.getIPFromHttpBinToDto())
                 .isNotNull();
+    }
+
+    @Test
+    void getIpFromAws(){
+        final String myIp = httpClientApp.getIpFromAws();
+        assertThat(myIp).isNotNull();
+        System.out.printf(myIp);
     }
 
     @Test

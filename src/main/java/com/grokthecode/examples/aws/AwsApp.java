@@ -1,5 +1,6 @@
 package com.grokthecode.examples.aws;
 
+import com.grokthecode.examples.http.HttpClientApp;
 import lombok.extern.log4j.Log4j2;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ec2.Ec2Client;
@@ -13,7 +14,7 @@ import java.util.Optional;
 public class AwsApp {
     private final Region awsRegion = Region.US_EAST_1;
 
-    public List<String> getInstancesByTagNameValue(final String tagNameValue) {
+    public List<String> getInstancesByTagName(final String tagNameValue) {
         final Ec2Client ec2Client = Ec2Client.builder().region(awsRegion).build();
 
         final var request = DescribeInstancesRequest.builder().build();
@@ -35,7 +36,7 @@ public class AwsApp {
         return instanceIdList;
     }
 
-    public Optional<Instance> getInstanceByInstanceId(final String instanceId) {
+    public Optional<Instance> getInstanceById(final String instanceId) {
         try {
             final Ec2Client ec2Client = Ec2Client.builder().region(awsRegion).build();
 
@@ -58,9 +59,9 @@ public class AwsApp {
         return Optional.empty();
     }
 
-    public List<String> getSecurityGroupByInstanceId(final String instanceId) {
+    public List<String> getSecurityGroupById(final String instanceId) {
 
-        final Optional<Instance> optionalInstance = getInstanceByInstanceId(instanceId);
+        final Optional<Instance> optionalInstance = getInstanceById(instanceId);
         final List<String> securityGroupId = new ArrayList<>();
 
         for (GroupIdentifier groupIdentifier : optionalInstance.get().securityGroups()) {
@@ -110,8 +111,8 @@ public class AwsApp {
         }
     }
 
-    public void addEC2SecurityGroupRule(
-            final String groupId, final String ruleDescription, final String protocol, final String ip) {
+    public void addEC2SecurityGroupRule(final String groupId, final String ruleDescription,
+                                        final String protocol, final String ip) {
         final Ec2Client ec2Client = Ec2Client.builder().region(awsRegion).build();
 
         try {
@@ -145,7 +146,7 @@ public class AwsApp {
             throws Exception {
         try {
             final Ec2Client ec2Client = Ec2Client.builder().region(awsRegion).build();
-            final Optional<IpPermission> optionalIpPermission = getIpPermissonByDescription(groupId, ruleDescription);
+            final Optional<IpPermission> optionalIpPermission = getIpPermissionByDescription(groupId, ruleDescription);
             final IpPermission ipPermission = optionalIpPermission.get();
 
             final var revokeSecurityGroupIngressRequest = RevokeSecurityGroupIngressRequest.builder()
@@ -162,8 +163,8 @@ public class AwsApp {
         }
     }
 
-    public Optional<IpPermission> getIpPermissonByDescription(
-            final String groupId, final String ruleDescription) throws Exception {
+    public Optional<IpPermission> getIpPermissionByDescription(final String groupId,
+                                                               final String ruleDescription) throws Exception {
         final Ec2Client ec2Client = Ec2Client.builder().region(awsRegion).build();
         IpPermission ipPermissionFound = null;
         try {
@@ -210,10 +211,9 @@ public class AwsApp {
         return Optional.of(ipPermissionFound);
     }
 
-    public void updateEC2SecurityGroupRule(
-            final String groupId, final String ruleDescription, final String ip) {
+    public void updateEC2SecurityGroupRule(final String groupId, final String ruleDescription, final String ip) {
         try {
-            final Optional<IpPermission> optionalIpPermission = getIpPermissonByDescription(groupId, ruleDescription);
+            final Optional<IpPermission> optionalIpPermission = getIpPermissionByDescription(groupId, ruleDescription);
             final String protocol = optionalIpPermission.get().ipProtocol();
 
             updateEC2SecurityGroupRule(groupId, ruleDescription, protocol, ip);
@@ -223,8 +223,8 @@ public class AwsApp {
         }
     }
 
-    public void updateEC2SecurityGroupRule(
-            final String groupId, final String ruleDescription, final String protocol, final String ip) {
+    public void updateEC2SecurityGroupRule(final String groupId, final String ruleDescription,
+                                           final String protocol, final String ip) {
         try {
             removeEC2SecurityGroupRule(groupId, ruleDescription);
             addEC2SecurityGroupRule(groupId, ruleDescription, protocol, ip);
@@ -232,5 +232,13 @@ public class AwsApp {
             log.error(e.getMessage());
             System.exit(1);
         }
+    }
+
+    public void updateSecurityGroupRuleWithMyIp(final String tagName, final String ruleDescription){
+        final String instanceId =  getInstancesByTagName(tagName).get(0).toString();
+        final String securityGroupId = getSecurityGroupById(instanceId).get(0).toString();
+        final HttpClientApp httpClientApp = new HttpClientApp();
+        final String myIp = httpClientApp.getIpFromAws();
+        updateEC2SecurityGroupRule(securityGroupId, ruleDescription, myIp);
     }
 }

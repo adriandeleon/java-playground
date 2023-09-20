@@ -27,6 +27,10 @@ public class HttpClientApp {
         return ipDto;
     }
 
+    public String getIpFromAws(){
+        return Unirest.get("https://checkip.amazonaws.com/").asString().getBody().toString().trim();
+    }
+
     public String getIMDBTitleInfo(){
         val response = Unirest.get("https://imdb-api.com/en/API/Title/k_8m9lb314/tt1832382")
                 .asJson();

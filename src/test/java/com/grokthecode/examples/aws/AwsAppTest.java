@@ -1,7 +1,7 @@
 package com.grokthecode.examples.aws;
 
-import com.grokthecode.examples.aws.AwsApp;
 import com.grokthecode.examples.http.HttpClientApp;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -26,21 +26,22 @@ class AwsAppTest {
   @Test
   @Disabled
   void getInstancesByTagNameValueTest() {
-    final List<String> instancesList = awsApp.getInstancesByTagNameValue("servidor-win");
+    final List<String> instancesList = awsApp.getInstancesByTagName("Bitnami-GitLab-RepoServer");
     assertThat(instancesList).isNotNull();
+    System.out.println(instancesList.get(0).toString());
   }
 
   @Test
   @Disabled
   void getInstanceFromIdTest() {
-    Optional<Instance> optionalInstance = awsApp.getInstanceByInstanceId("i-0912954d5bf659903");
+    Optional<Instance> optionalInstance = awsApp.getInstanceById("i-0f0d68fc19d641464");
     assertThat(optionalInstance.get()).isNotNull();
   }
 
   @Test
   @Disabled
   void getSecurityGroupFromInstanceIdTest() {
-    final List<String> securityGroupIdList = awsApp.getSecurityGroupByInstanceId("servidor-win");
+    final List<String> securityGroupIdList = awsApp.getSecurityGroupById("i-0f0d68fc19d641464");
     assertThat(securityGroupIdList).isNotNull();
   }
 
@@ -71,7 +72,7 @@ class AwsAppTest {
   @Test
   @Disabled
   void getIpPermissonByDescriptionTest() throws Exception {
-    awsApp.getIpPermissonByDescription(securityGroupId, ruleDescription);
+    awsApp.getIpPermissionByDescription(securityGroupId, ruleDescription);
   }
 
   @Test
@@ -86,5 +87,10 @@ class AwsAppTest {
   private String getPublicIp(){
     final HttpClientApp httpClientApp = new HttpClientApp();
     return httpClientApp.getIPFromHttpBinToDto().getOrigin();
+  }
+
+  @Test
+  void updateSecurityGroupRuleWithMyIp(){
+    awsApp.updateSecurityGroupRuleWithMyIp("Bitnami-GitLab-RepoServer", "Adrian De Leon");
   }
 }
