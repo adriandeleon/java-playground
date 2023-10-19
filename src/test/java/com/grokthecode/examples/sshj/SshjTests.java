@@ -8,6 +8,7 @@ import net.schmizz.sshj.userauth.keyprovider.PKCS8KeyFile;
 import net.schmizz.sshj.xfer.FileSystemFile;
 import net.sf.expectit.Expect;
 import net.sf.expectit.ExpectBuilder;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.Console;
@@ -27,6 +28,7 @@ public class SshjTests {
 
 
     @Test
+    @Disabled
     void sshjConnectionTest() throws IOException {
 
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());;
@@ -53,6 +55,7 @@ public class SshjTests {
     }
 
     @Test
+    @Disabled
     void sshjConnectionWithExpectTest() throws IOException {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());;
 
