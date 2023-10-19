@@ -23,7 +23,7 @@ public class restAssured {
                 .then()
                 .assertThat().statusCode(200)
                 .log().body()
-                .body("origin", equalTo("189.203.90.251"));
+                .body("origin", equalTo("187.190.23.78"));
 
         //System.out.println(response.jsonPath().prettyPrint());
     }

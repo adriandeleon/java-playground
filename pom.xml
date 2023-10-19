@@ -26,7 +26,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>edge-SNAPSHOT</version>
+            <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
 
@@ -216,7 +216,7 @@
         <dependency>
             <groupId>com.hierynomus</groupId>
             <artifactId>sshj</artifactId>
-            <version>0.35.0</version>
+            <version>0.37.0</version>
         </dependency>
 
         <dependency>
@@ -288,7 +288,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.gaul</groupId>
                 <artifactId>modernizer-maven-plugin</artifactId>
