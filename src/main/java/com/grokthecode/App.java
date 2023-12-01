@@ -19,11 +19,7 @@ public class App {
         System.out.println("name: " + myMap.get(1));
 
         final boolean foo;
-        if(true){
-            System.out.println("1");
-        }else{
-            System.out.println("2");
-        }
+        System.out.println("1");
         foo = true;
 
         final List<String> myList = List.of("Adrian", "Adriancito", "Gisel");
@@ -33,18 +29,18 @@ public class App {
         }
     }
 
-  public void checkParamsWithRequireNonNull(final String firstName, final String lastName) {
-      Objects.requireNonNull(firstName, FIRST_NAME_CANNOT_BE_NULL);
-      Objects.requireNonNull(lastName, LAST_NAME_CANNOT_BE_NULL);
-      Validate.notNull(firstName);
+    public void checkParamsWithRequireNonNull(final String firstName, final String lastName) {
+        Objects.requireNonNull(firstName, FIRST_NAME_CANNOT_BE_NULL);
+        Objects.requireNonNull(lastName, LAST_NAME_CANNOT_BE_NULL);
+        Validate.notNull(firstName);
 
-      log.info(String.format("firstName: %s", firstName));
-      log.info(String.format("lastName: %s", lastName));
-  }
+        log.info(String.format("firstName: %s", firstName));
+        log.info(String.format("lastName: %s", lastName));
+    }
 
-  public void checkParamsWithAnnotation(@NonNull final String firstName,
-                                        @NonNull final String lastName) {
-      log.info(String.format("firstName: %s", firstName));
-      log.info(String.format("lastName: %s", lastName));
-  }
+    public void checkParamsWithAnnotation(@NonNull final String firstName,
+                                          @NonNull final String lastName) {
+        log.info(String.format("firstName: %s", firstName));
+        log.info(String.format("lastName: %s", lastName));
+    }
 }
