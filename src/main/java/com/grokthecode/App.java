@@ -24,9 +24,7 @@ public class App {
 
         final List<String> myList = List.of("Adrian", "Adriancito", "Gisel");
 
-        for (String s : myList) {
-
-        }
+        myList.forEach(System.out::println);
     }
 
     public void checkParamsWithRequireNonNull(final String firstName, final String lastName) {
