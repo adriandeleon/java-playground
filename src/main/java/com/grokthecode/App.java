@@ -18,9 +18,7 @@ public class App {
 
         System.out.println("name: " + myMap.get(1));
 
-        final boolean foo;
         System.out.println("1");
-        foo = true;
 
         final List<String> myList = List.of("Adrian", "Adriancito", "Gisel");
 
@@ -30,7 +28,9 @@ public class App {
     public void checkParamsWithRequireNonNull(final String firstName, final String lastName) {
         Objects.requireNonNull(firstName, FIRST_NAME_CANNOT_BE_NULL);
         Objects.requireNonNull(lastName, LAST_NAME_CANNOT_BE_NULL);
-        Validate.notNull(firstName);
+        Validate.notNull(firstName, FIRST_NAME_CANNOT_BE_NULL);
+
+        Validate.notNull(lastName, LAST_NAME_CANNOT_BE_NULL);
 
         log.info(String.format("firstName: %s", firstName));
         log.info(String.format("lastName: %s", lastName));
