@@ -250,6 +250,12 @@
             <version>2.3.32</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.unix4j</groupId>
+            <artifactId>unix4j-command</artifactId>
+            <version>0.6</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
