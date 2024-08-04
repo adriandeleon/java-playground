@@ -1,0 +1,38 @@
+# curl --request GET
+#	--url 'https://twitter135.p.rapidapi.com/AutoComplete/?q=Elon'
+#	--header 'X-RapidAPI-Host: twitter135.p.rapidapi.com'
+#	--header 'X-RapidAPI-Key: a213887996mshc9fdd2ee74bca84p12ef3djsn76a41beefd42'
+#	--header 'content-type: application/octet-stream'
+GET https://twitter135.p.rapidapi.com/AutoComplete/?q=Elon
+X-RapidAPI-Host: twitter135.p.rapidapi.com
+X-RapidAPI-Key: a213887996mshc9fdd2ee74bca84p12ef3djsn76a41beefd42
+Content-Type: application/octet-stream
+
+###
+
+
+
+###
+
+### GET request with a header
+GET https://httpbin.org/ip
+Accept: application/json
+
+### GET request with parameter
+GET https://httpbin.org/get?show_env=1
+Accept: application/json
+
+### GET request with environment variables
+GET {{host}}/get?show_env={{show_env}}
+Accept: application/json
+
+### GET request with disabled redirects
+# @no-redirect
+GET https://httpbin.org/status/301
+
+### GET request with dynamic variables
+GET https://httpbin.org/anything?id={{$uuid}}&ts={{$timestamp}}
+
+###
+
+

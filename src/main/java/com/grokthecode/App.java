@@ -1,12 +1,14 @@
 package com.grokthecode;
 
-import lombok.NonNull;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.Validate;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.NullMarked;
 
 import java.util.*;
 
 @Log4j2
+@NullMarked
 public class App {
     public static final String FIRST_NAME_CANNOT_BE_NULL = "firstName cannot be null.";
     public static final String LAST_NAME_CANNOT_BE_NULL = "lastName cannot be null.";
@@ -36,8 +38,7 @@ public class App {
         log.info(String.format("lastName: %s", lastName));
     }
 
-    public void checkParamsWithAnnotation(@NonNull final String firstName,
-                                          @NonNull final String lastName) {
+    public void checkParamsWithAnnotation(final @NonNull String firstName, @NonNull final String lastName) {
         log.info(String.format("firstName: %s", firstName));
         log.info(String.format("lastName: %s", lastName));
     }

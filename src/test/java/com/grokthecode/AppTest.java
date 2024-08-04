@@ -50,6 +50,11 @@ class AppTest {
   }
 
     @Test
+    void checkParamsFirstNameWithAnnotationTest2() {
+       app.checkParamsWithAnnotation(null, null);
+    }
+
+    @Test
     @Disabled
     void checkParamsLastNameWithAnnotationLogsTest() {
         app.checkParamsWithAnnotation("Adrian", "De Leon");
