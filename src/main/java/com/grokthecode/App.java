@@ -34,12 +34,12 @@ public class App {
 
         Validate.notNull(lastName, LAST_NAME_CANNOT_BE_NULL);
 
-        log.info(String.format("firstName: %s", firstName));
-        log.info(String.format("lastName: %s", lastName));
+        log.info("firstName: {}", firstName);
+        log.info("lastName: {}", lastName);
     }
 
     public void checkParamsWithAnnotation(final @NonNull String firstName, @NonNull final String lastName) {
-        log.info(String.format("firstName: %s", firstName));
-        log.info(String.format("lastName: %s", lastName));
+        log.info("firstName: {}", firstName);
+        log.info("lastName: {}", lastName);
     }
 }
