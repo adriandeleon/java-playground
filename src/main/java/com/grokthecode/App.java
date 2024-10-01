@@ -1,17 +1,20 @@
 package com.grokthecode;
 
-import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.Validate;
+import org.apache.logging.log4j.Logger;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
-@Log4j2
 @NullMarked
 public class App {
     public static final String FIRST_NAME_CANNOT_BE_NULL = "firstName cannot be null.";
     public static final String LAST_NAME_CANNOT_BE_NULL = "lastName cannot be null.";
+    private static final Logger log = org.apache.logging.log4j.LogManager.getLogger(App.class);
 
     public static void main(String[] args) {
         log.info("Hello World");
