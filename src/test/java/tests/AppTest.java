@@ -1,14 +1,12 @@
-package com.grokthecode;
+package tests;
 
-import nl.altindag.log.LogCaptor;
+import com.grokthecode.App;
 import org.junit.jupiter.api.*;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 class AppTest {
     private static App app;
-    private static LogCaptor logCaptor;
+
 
     @BeforeAll
     static void setup() {
@@ -29,14 +27,14 @@ class AppTest {
   @Test
   @Disabled
   void checkParamsFirstNameWithRequireNonNullTest() {
-        assertThatExceptionOfType(NullPointerException.class)
+        Assertions.assertThatExceptionOfType(NullPointerException.class)
                 .isThrownBy(() -> app.checkParamsWithRequireNonNull(null, "De Leon"))
                 .withMessageContaining(App.FIRST_NAME_CANNOT_BE_NULL);
   }
     @Test
     @Disabled
     void checkParamsLastNameWithRequireNonNullTest() {
-        assertThatExceptionOfType(NullPointerException.class)
+        Assertions.assertThatExceptionOfType(NullPointerException.class)
                 .isThrownBy(() -> app.checkParamsWithRequireNonNull("Adrian", null))
                 .withMessageContaining(App.LAST_NAME_CANNOT_BE_NULL);
     }
@@ -44,7 +42,7 @@ class AppTest {
   @Test
   @Disabled
   void checkParamsFirstNameWithAnnotationTest() {
-      assertThatExceptionOfType(NullPointerException.class)
+      Assertions.assertThatExceptionOfType(NullPointerException.class)
               .isThrownBy(() -> app.checkParamsWithAnnotation(null, "De Leon"))
               .withMessageContaining("firstName is marked non-null but is null");
   }
